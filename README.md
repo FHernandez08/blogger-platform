@@ -1,7 +1,7 @@
 # blogger-platform
 
 ### Flowchart
-![alt text](image.png)
+![alt text](/public/styles/images/flowchart.png)
 
 As seen in the flowchart, the idea is to implement a login/register form system to ensure that every user in the blogger platform, whether it be to create their own blog posts, to view other users' blog posts, or to access their account, they will be able to do that.
 
