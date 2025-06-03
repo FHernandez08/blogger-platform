@@ -12,16 +12,24 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", { cssFile: "index.css" });
 });
 
 app.get("/blogs", (req, res) => {
-    res.render("blogs.ejs");
+    res.render("blogs.ejs", { cssFile: "blogs.css" });
 });
 
 app.get("/profile", (req, res) => {
-    res.render("profile.ejs");
+    res.render("profile.ejs", { cssFile: "profile.css" });
 });
+
+app.get("/rules", (req, res) => {
+    res.render("rules.ejs", { cssFile: "rules.css" });
+});
+
+app.get("/about", (req, res) => {
+    res.render("about.ejs", { cssFile: "about.ejs" });
+})
 
 app.post("/register", (req, res) => {
     
