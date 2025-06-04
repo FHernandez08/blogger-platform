@@ -1,5 +1,37 @@
 <%- include("partials/header.ejs") %>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="assets/index.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="greetings">
+            <h1>Welcome to the blog it way website!</h1>
+
+            <% if (locals.firstName && locals.lastName) { %>
+            <p>
+                Welcome back,
+                <%= firstName %>
+                <%= lastName %>!
+            </p>
+            <% } else { %>
+                <p>
+                    Please enter your login credentials or register your account to gain access to the page!
+                </p>
+            <% } %>
+        </div>
+
+        <div id="blog-posts">
+
+        </div>
+    </div>
+</body>
+</html>
 
 <%- include("partials/footer.ejs") %>
