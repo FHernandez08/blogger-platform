@@ -9,7 +9,63 @@
     <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-    
+    <% if (locals.user) { %>
+        <section id="home-welcome">
+            <h2>Welcome to the blogging platform,
+                <%= locals.firstName %> 
+                <%= locals.lastName %>
+                !
+            </h2>
+            <button id="add-post" type="submit">Add Post</button>
+        </section>
+
+        <section id="user-latest-blogs">
+            <div class="row">
+                <% latestBlogs.forEach(blog => { %>
+                    <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                        <h5 class="card-title"><%= blog.title %></h5>
+                        <p class="card-text"><%= blog.snippet %></p>
+                        <a href="/blogs/<%= blog._id %>" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </section>
+
+        <section id="recommended-reads">
+            <div class="row">
+                <% latestBlogs.forEach(blog => { %>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= blog.title %></h5>
+                                <p class="card-text"><%= blog.snippet %></p>
+                                <a href="/blogs/<%= blog._id %>" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+            <% }) %>
+            </div>
+        </section>
+        <% } else { %>
+            <section id="hero">
+
+            </section>
+
+            <section id="introduction">
+
+            </section>
+            
+            <section id="popular-blogs">
+
+            </section>
+
+            <section id="testimonials">
+                
+            </section>
+            <% } %>
 </body>
 </html>
 

@@ -8,7 +8,74 @@
     <link rel="stylesheet" href="assets/profile.css">
 </head>
 <body>
-    
+    <% if (locals.firstName && locals.lastName) { %>
+        <h1>
+            Welcome to your profile page,
+            <%= firstName %>
+            <%= lastName %>
+            !
+        </h1>
+        <% } else { %>
+            <h2>Please login to view your profile!</h2>
+            <% } %>
+
+    <hr>
+    <div id="profile-info">
+        <button id="edit-changes">Edit Changes</button>
+        <% if (locals.firstName && locals.lastName && locals.userName && locals.email && locals.password) { %>
+            <p>Full Name:
+                <%= locals.firstName %>
+                <%= locals.lastName %>
+            </p>
+            <p>Username:
+                <%= locals.userName %>
+            </p>
+            <p>Email:
+                <%= locals.email %>
+            </p>
+            <p>Password:
+                <%= locals.password %>
+            </p>
+            <% } else { %>
+                <p>Once you're logged in, you'll be able to see your profile information such as email and username.</p>
+                <% } %>
+    </div>
+    <div id="profile-blogs">
+    </div>
+
+    <form action="/profile-form" method="post" class="hidden">
+        <p>If you'll like to update any details, just remove the current information and type the new information
+            then click the the button to confirm the changes.
+        </p>
+        <p>
+            You'll see the changes appear after the form closes.
+        </p>
+        <section id="firstname-edit-changes">
+            <label for="firstname-edit">First Name</label>
+            <input type="text" name="firstname-edit" id="firstname-edit">
+        </section>
+        <section id="lastname-edit-changes">
+            <label for="lastname-edit">Last Name</label>
+            <input type="text" name="lastname-edit" id="lastname-edit">
+        </section>
+        <section id="email-edit-changes">
+            <label for="email-edit">Email</label>
+            <input type="email" name="email-edit" id="email-edit">
+        </section>
+        <section id="username-edit-changes">
+            <label for="username-edit">Username</label>
+            <input type="text" name="username-edit" id="username-edit">
+        </section>
+        <section id="password-edit-changes">
+            <label for="password-edit">Password</label>
+            <input type="password" name="password-edit" id="password-edit">
+        </section>
+
+        <div id="edit-form-buttons">
+            <button type="reset">Clear</button>
+            <button type="submit">Confirm Changes</button>
+        </div>
+    </form>
 </body>
 </html>
 
